@@ -1,6 +1,9 @@
 <template>
-    <div class="hello">
-        qwe
+    <div class="main">
+        <h3>内容测试</h3>
+        <p>分转元：{{amount1}}</p>
+        <p>元转分：{{amount2}}</p>
+        <p>{{date}}</p>
     </div>
 </template>
 
@@ -10,11 +13,28 @@
     export default {
         name: 'Index',
         data() {
-            return {}
+            return {
+                amount1: 0,
+                amount2: 0,
+                date: ''
+            }
         },
         methods: {
             init() {
-                Utils.Amount.fenToYuan()
+                let pp = Utils.Amount.fenToYuan({
+                    price: 1234,
+                    util: '¥'
+                })
+                this.amount1 = pp
+
+                let qq = Utils.Amount.yuanTofen()
+                this.amount2 = qq
+
+                let oo = Utils.Time.getTimes({
+                    // time:1541606400000,
+                    style: 'Y年M月D日'
+                })
+                this.date = oo
             }
         },
         created() {
@@ -25,5 +45,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+    .main {
+    }
 </style>

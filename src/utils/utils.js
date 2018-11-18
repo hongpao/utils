@@ -3,7 +3,9 @@
  */
 
 import Amount from './amount'
+import Time from './time'
 
 export default {
-    Amount
+    Amount,
+    Time
 }
