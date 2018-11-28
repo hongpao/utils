@@ -35,6 +35,8 @@
                     style: 'Y年M月D日'
                 })
                 this.date = oo
+
+                let t = Utils.isEmpty({})
             }
         },
         created() {

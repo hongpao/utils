@@ -4,8 +4,10 @@
 
 import Amount from './amount'
 import Time from './time'
+import IsEmpty from './isEmpty'
 
 export default {
     Amount,
-    Time
+    Time,
+    IsEmpty
 }
