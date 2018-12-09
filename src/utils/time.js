@@ -22,6 +22,7 @@ class Time {
             t = new Date()
         }
 
+        //各类型时间获取
         let Y = t.getFullYear()
         let M = this.getFull(t.getMonth() + 1)
         let D = this.getFull(t.getDate())
