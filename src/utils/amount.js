@@ -62,7 +62,7 @@ class Amount {
        * 大于2位后，拼接为小数
        */
       if (pAry[1].length <= 2) {
-        f += `${pAry[1]}00`.substr(0, 2)
+        f += `${pAry[1]}0`.substr(0, 2)
       } else {
         f += `${pAry[1].substr(0, 2)}`
         f += `.${pAry[1].substring(2)}`
