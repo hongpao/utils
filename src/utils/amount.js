@@ -41,16 +41,38 @@ class Amount {
     price = price || 0
     let f = ''
 
+    //非0情况下才正常处理
     if (price) {
+      //金额转化为字符串处理
       price = price.toString()
+
+      //如果是正数，则改为两位小数
       if (!price.includes('.')) {
         price += '.00'
       }
-      let pAry = price.split('.')
-      f += parseInt(pAry[0]) ? pAry[0] : ''
-      f += `${pAry[1]}00`.substr(0, 2)
 
-      return parseInt(f)
+      //分割正数与小数
+      let pAry = price.split('.')
+
+      //获取整数位
+      f += parseInt(pAry[0]) ? pAry[0] : ''
+      
+      /**
+       * 小数位如果小于等于2位，则直接拼接
+       * 大于2位后，拼接为小数
+       */
+      if (pAry[1].length <= 2) {
+        f += `${pAry[1]}00`.substr(0, 2)
+      } else {
+        f += `${pAry[1].substr(0, 2)}`
+        f += `.${pAry[1].substring(2)}`
+      }
+
+      if (!price.includes('.')) {
+        return parseInt(f)
+      } else {
+        return parseFloat(f)
+      }
     } else {
       return 0
     }
