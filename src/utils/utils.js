@@ -5,9 +5,11 @@
 import Amount from './amount'
 import Time from './time'
 import IsEmpty from './isEmpty'
+import Image from './image'
 
 export default {
     Amount,
     Time,
-    IsEmpty
+    IsEmpty,
+    Image
 }
